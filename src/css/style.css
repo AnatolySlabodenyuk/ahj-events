@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
+  color: #333;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  color: #444;
+}
+
+/* ─── Task 1: Goblin Game ──────────────────────────────────────────────────── */
+
+.game-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.game-start-btn {
+  padding: 8px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.game-start-btn:disabled {
+  background: #aaa;
+  cursor: default;
+}
+
+.game-score,
+.game-misses {
+  font-size: 1rem;
+}
+
+.field-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.game-cell {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #aaa;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goblin {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  cursor: crosshair;
+}
+
+.game-status {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #c0392b;
+  min-height: 1.5em;
+}
+
+/* ─── Task 2: Task Manager ─────────────────────────────────────────────────── */
+
+.task-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.task-input,
+.task-filter {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  width: 280px;
+}
+
+.task-error {
+  color: #c0392b;
+  font-size: 0.9rem;
+}
+
+.task-filter-row {
+  margin-bottom: 12px;
+}
+
+.task-pinned-section,
+.task-all-section {
+  margin-bottom: 16px;
+}
+
+.task-pinned-section h3,
+.task-all-section h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  max-width: 500px;
+}
+
+.task-item--pinned {
+  background: #fff8e1;
+  border-color: #f0c040;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.task-pin-btn,
+.task-delete-btn {
+  padding: 3px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  background: #f5f5f5;
+}
+
+.task-pin-btn:hover {
+  background: #e0e0e0;
+}
+
+.task-delete-btn {
+  color: #c0392b;
+}
+
+.task-delete-btn:hover {
+  background: #fdecea;
+}
+
+.no-tasks {
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+  margin: 4px 0;
+}
+
+/* ─── Task 3: Image Gallery ────────────────────────────────────────────────── */
+
+.gallery-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.gallery-name-input,
+.gallery-url-input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  width: 200px;
+}
+
+.gallery-add-btn {
+  padding: 6px 16px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.gallery-add-btn:hover {
+  background: #218838;
+}
+
+.gallery-error {
+  color: #c0392b;
+  font-size: 0.9rem;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gallery-item {
+  width: 140px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.gallery-img {
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.gallery-img-name {
+  font-size: 0.85rem;
+  margin: 4px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gallery-delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(192, 57, 43, 0.8);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.gallery-delete-btn:hover {
+  background: #c0392b;
+}
