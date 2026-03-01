@@ -7,12 +7,12 @@ export class Field {
   }
 
   render() {
-    this.container.innerHTML = '';
+    this.container.innerHTML = "";
     this.cells = [];
     for (let i = 0; i < this.size; i++) {
-      const cell = document.createElement('div');
-      cell.className = 'game-cell';
-      this.container.appendChild(cell);
+      const cell = document.createElement("div");
+      cell.className = "game-cell";
+      this.container.append(cell);
       this.cells.push(cell);
     }
   }

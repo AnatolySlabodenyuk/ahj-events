@@ -1,4 +1,4 @@
-import goblinSrc from '../img/goblin.png';
+import goblinSrc from "../img/goblin.png";
 
 export class Goblin {
   constructor(cells, onHit, onMiss) {
@@ -13,11 +13,11 @@ export class Goblin {
   }
 
   createElement() {
-    const img = document.createElement('img');
+    const img = document.createElement("img");
     img.src = goblinSrc;
-    img.alt = 'goblin';
-    img.className = 'goblin';
-    img.addEventListener('click', () => this.handleClick());
+    img.alt = "goblin";
+    img.className = "goblin";
+    img.addEventListener("click", () => this.handleClick());
     return img;
   }
 
@@ -40,7 +40,7 @@ export class Goblin {
     const cell = this.getRandomCell();
     this.currentCell = cell;
     this.active = true;
-    cell.appendChild(this.el);
+    cell.append(this.el);
 
     this.timer = setTimeout(() => {
       if (this.active && !this.stopped) {

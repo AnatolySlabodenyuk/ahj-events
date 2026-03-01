@@ -1,5 +1,5 @@
-import { Field } from './Field';
-import { Goblin } from './Goblin';
+import { Field } from "./Field";
+import { Goblin } from "./Goblin";
 
 export class Game {
   constructor(container) {
@@ -18,38 +18,38 @@ export class Game {
   }
 
   render() {
-    this.container.innerHTML = '';
+    this.container.innerHTML = "";
 
-    const controls = document.createElement('div');
-    controls.className = 'game-controls';
+    const controls = document.createElement("div");
+    controls.className = "game-controls";
     controls.innerHTML = `
       <button class="game-start-btn">Начать игру</button>
       <span class="game-score">Очки: <strong>0</strong></span>
       <span class="game-misses">Промахи: <strong>0</strong> / ${this.maxMisses}</span>
     `;
-    this.container.appendChild(controls);
+    this.container.append(controls);
 
-    this.startBtn = controls.querySelector('.game-start-btn');
-    this.scoreEl = controls.querySelector('.game-score strong');
-    this.missesEl = controls.querySelector('.game-misses strong');
+    this.startBtn = controls.querySelector(".game-start-btn");
+    this.scoreEl = controls.querySelector(".game-score strong");
+    this.missesEl = controls.querySelector(".game-misses strong");
 
-    const fieldContainer = document.createElement('div');
-    fieldContainer.className = 'field-container';
-    this.container.appendChild(fieldContainer);
+    const fieldContainer = document.createElement("div");
+    fieldContainer.className = "field-container";
+    this.container.append(fieldContainer);
 
-    this.statusEl = document.createElement('div');
-    this.statusEl.className = 'game-status';
-    this.container.appendChild(this.statusEl);
+    this.statusEl = document.createElement("div");
+    this.statusEl.className = "game-status";
+    this.container.append(this.statusEl);
 
     this.field = new Field(fieldContainer);
-    this.startBtn.addEventListener('click', () => this.start());
+    this.startBtn.addEventListener("click", () => this.start());
   }
 
   start() {
     this.score = 0;
     this.misses = 0;
     this.isRunning = true;
-    this.statusEl.textContent = '';
+    this.statusEl.textContent = "";
     this.startBtn.disabled = true;
     this.updateUI();
 

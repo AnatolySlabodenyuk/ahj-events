@@ -16,18 +16,18 @@ export class ImageGallery {
       <div class="gallery-grid"></div>
     `;
 
-    this.nameInputEl = this.container.querySelector('.gallery-name-input');
-    this.urlInputEl = this.container.querySelector('.gallery-url-input');
-    this.addBtn = this.container.querySelector('.gallery-add-btn');
-    this.errorEl = this.container.querySelector('.gallery-error');
-    this.gridEl = this.container.querySelector('.gallery-grid');
+    this.nameInputEl = this.container.querySelector(".gallery-name-input");
+    this.urlInputEl = this.container.querySelector(".gallery-url-input");
+    this.addBtn = this.container.querySelector(".gallery-add-btn");
+    this.errorEl = this.container.querySelector(".gallery-error");
+    this.gridEl = this.container.querySelector(".gallery-grid");
 
-    this.addBtn.addEventListener('click', () => this.addImage());
-    this.urlInputEl.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') this.addImage();
+    this.addBtn.addEventListener("click", () => this.addImage());
+    this.urlInputEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") this.addImage();
     });
-    this.nameInputEl.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') this.addImage();
+    this.nameInputEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") this.addImage();
     });
   }
 
@@ -36,19 +36,19 @@ export class ImageGallery {
     const url = this.urlInputEl.value.trim();
 
     if (!name || !url) {
-      this.showError('Заполните все поля');
+      this.showError("Заполните все поля");
       return;
     }
 
     this.validateUrl(url, (valid) => {
       if (!valid) {
-        this.showError('Неверный URL изображения');
+        this.showError("Неверный URL изображения");
         return;
       }
       this.images.push({ name, url });
-      this.nameInputEl.value = '';
-      this.urlInputEl.value = '';
-      this.errorEl.textContent = '';
+      this.nameInputEl.value = "";
+      this.urlInputEl.value = "";
+      this.errorEl.textContent = "";
       this.renderImages();
     });
   }
@@ -66,26 +66,26 @@ export class ImageGallery {
   }
 
   renderImages() {
-    this.gridEl.innerHTML = '';
+    this.gridEl.innerHTML = "";
     this.images.forEach((item, index) => {
-      const block = document.createElement('div');
-      block.className = 'gallery-item';
+      const block = document.createElement("div");
+      block.className = "gallery-item";
       block.innerHTML = `
         <img src="${item.url}" alt="${item.name}" class="gallery-img">
         <p class="gallery-img-name">${item.name}</p>
         <button class="gallery-delete-btn" title="Удалить">✕</button>
       `;
       block
-        .querySelector('.gallery-delete-btn')
-        .addEventListener('click', () => this.deleteImage(index));
-      this.gridEl.appendChild(block);
+        .querySelector(".gallery-delete-btn")
+        .addEventListener("click", () => this.deleteImage(index));
+      this.gridEl.append(block);
     });
   }
 
   showError(msg) {
     this.errorEl.textContent = msg;
     setTimeout(() => {
-      this.errorEl.textContent = '';
+      this.errorEl.textContent = "";
     }, 3000);
   }
 }
